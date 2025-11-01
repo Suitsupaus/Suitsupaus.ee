@@ -1,1 +1,132 @@
 
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suitsupaus.ee</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Paytone+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #162447);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Üleval vasakus nurgas */
+  .top-left {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    text-align: left;
+    z-index: 2;
+  }
+  .site-name {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #e94560, #f07b3f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Keskel social ikoonid */
+  .social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    z-index: 2;
+  }
+  .social-icons a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    background: rgba(233, 69, 96,0.1);
+    border-radius: 50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color: #e94560;
+    text-decoration:none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .social-icons a:hover {
+    background:#e94560;
+    color:#fff;
+    transform: scale(1.15);
+    box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  /* Suitsu logo keskel (üle social iconide) */
+  .smoke-logo {
+    font-size: 5rem;
+    color: #f07b3f; /* oranž nagu suitsupaus.ee */
+    margin-bottom: 0.5rem;
+  }
+
+  /* Peamine sõnum */
+  .message {
+    font-size: 0.85rem;
+    color:#cbd5e1;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+
+  footer {
+    font-size:0.75rem;
+    color:#777;
+    margin-top:2rem;
+    z-index:2;
+  }
+
+  @media (max-width:480px){
+    .social-icons a { width:40px; height:40px; font-size:1rem;}
+    .site-name { font-size:1.2rem; }
+    .message { font-size:0.7rem; }
+    .smoke-logo { font-size:3rem; margin-bottom:0.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Üleval vasakus nurgas -->
+<div class="top-left">
+  <div class="site-name">Suitsupaus.ee</div>
+</div>
+
+<!-- Keskel logo ja social ikoonid -->
+<div id="content" style="display:flex; flex-direction: column; align-items:center; justify-content:center;">
+  <div class="smoke-logo">💨</div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/vazzyyi?igsh=MXQ0OHgzNTR2b3ZrdQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="tiktok.com/@savuyy" target="_blank"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <p class="message" id="fadeMessage">⚠️ Suitsetamine ei anna kasu — ainult kahju.</p>
+</div>
+
+<footer>© 2025 Suitsupaus.ee — Kõik õigused kaitstud.</footer>
+
+<script>
+  // Fade-in message ja peida 10 sekundi pärast
+  window.addEventListener('load', () => {
+    const msg = document.getElementById('fadeMessage');
+    msg.style.opacity = '1'; // fade-in
+    setTimeout(() => {
+      msg.style.opacity = '0'; // fade-out
+    }, 10000); // 10 sek
+  });
+</script>
+
+</body>
+</html>
