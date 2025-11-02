@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -16,70 +15,113 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    justify-content: center;
-    align-items: center;
     text-align: center;
   }
 
-  /* Üleval vasakus nurgas */
-  .top-left {
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    text-align: left;
-    z-index: 2;
+  header {
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    background:#162447cc;
+    backdrop-filter: blur(6px);
+    padding:1rem 2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    z-index:50;
+    border-bottom:1px solid #222;
   }
-  .site-name {
+
+  .site-logo {
     font-family: 'Paytone One', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size:1.5rem;
+    font-weight:900;
     background: linear-gradient(90deg, #e94560, #f07b3f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 0.3rem;
+    text-decoration:none;
   }
 
-  /* Keskel social ikoonid */
+  nav {
+    display:flex;
+    gap:1.5rem;
+  }
+  nav a {
+    color:#e94560;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.2s;
+  }
+  nav a:hover { color:#f07b3f; }
+
+  .menu-toggle {
+    display:none;
+    font-size:1.5rem;
+    cursor:pointer;
+  }
+
+  @media(max-width:768px){
+    nav {
+      display:none;
+      flex-direction:column;
+      background:#162447cc;
+      position:absolute;
+      top:100%;
+      right:0;
+      width:200px;
+      padding:1rem;
+      border-radius:0 0 0.5rem 0.5rem;
+    }
+    nav.show { display:flex; }
+    .menu-toggle { display:block; color:#e94560; }
+  }
+
+  .content-wrapper {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    flex:1;
+    margin-top:6rem;
+  }
+
+  .smoke-logo {
+    font-size:5rem;
+    color:#f07b3f;
+    margin-bottom:0.5rem;
+  }
+
   .social-icons {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    z-index: 2;
+    display:flex;
+    gap:1.5rem;
+    margin-top:1.5rem;
   }
   .social-icons a {
-    width: 50px;
-    height: 50px;
-    font-size: 1.3rem;
-    background: rgba(233, 69, 96,0.1);
-    border-radius: 50%;
+    width:50px;
+    height:50px;
+    font-size:1.3rem;
+    background: rgba(233,69,96,0.1);
+    border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
-    color: #e94560;
+    color:#e94560;
     text-decoration:none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition:0.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
   }
   .social-icons a:hover {
     background:#e94560;
     color:#fff;
-    transform: scale(1.15);
+    transform:scale(1.15);
     box-shadow:0 6px 20px rgba(0,0,0,0.4);
   }
 
-  /* Suitsu logo keskel (üle social iconide) */
-  .smoke-logo {
-    font-size: 5rem;
-    color: #f07b3f; /* oranž nagu suitsupaus.ee */
-    margin-bottom: 0.5rem;
-  }
-
-  /* Peamine sõnum */
   .message {
-    font-size: 0.85rem;
+    font-size:0.85rem;
     color:#cbd5e1;
-    margin-top: 0.5rem;
-    opacity: 0;
+    margin-top:0.5rem;
+    opacity:0;
     transition: opacity 2s ease-in-out;
   }
 
@@ -87,12 +129,11 @@
     font-size:0.75rem;
     color:#777;
     margin-top:2rem;
-    z-index:2;
   }
 
   @media (max-width:480px){
     .social-icons a { width:40px; height:40px; font-size:1rem;}
-    .site-name { font-size:1.2rem; }
+    .site-logo { font-size:1.2rem; }
     .message { font-size:0.7rem; }
     .smoke-logo { font-size:3rem; margin-bottom:0.3rem; }
   }
@@ -100,13 +141,17 @@
 </head>
 <body>
 
-<!-- Üleval vasakus nurgas -->
-<div class="top-left">
-  <div class="site-name">Suitsupaus.ee</div>
-</div>
+<header>
+  <a href="#" class="site-logo">Suitsupaus.ee</a>
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <nav id="menuNav">
+    <a href="#">Avaleht</a>
+    <a href="partner.html">Partner</a>
+    <a href="mailto:vashof1@gmail.com">Kontakt</a>
+  </nav>
+</header>
 
-<!-- Keskel logo ja social ikoonid -->
-<div id="content" style="display:flex; flex-direction: column; align-items:center; justify-content:center;">
+<div class="content-wrapper">
   <div class="smoke-logo">💨</div>
   <div class="social-icons">
     <a href="https://www.instagram.com/vazzyyi?igsh=MXQ0OHgzNTR2b3ZrdQ==" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -118,13 +163,16 @@
 <footer>© 2025 Suitsupaus.ee — Kõik õigused kaitstud.</footer>
 
 <script>
-  // Fade-in message ja peida 10 sekundi pärast
+  // Hamburger menu toggle
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('menuNav');
+  toggle.addEventListener('click', () => { nav.classList.toggle('show'); });
+
+  // Fade-in message
   window.addEventListener('load', () => {
     const msg = document.getElementById('fadeMessage');
-    msg.style.opacity = '1'; // fade-in
-    setTimeout(() => {
-      msg.style.opacity = '0'; // fade-out
-    }, 10000); // 10 sek
+    msg.style.opacity = '1';
+    setTimeout(() => { msg.style.opacity = '0'; }, 10000);
   });
 </script>
 
