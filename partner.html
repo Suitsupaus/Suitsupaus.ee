@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Suitsupaus.ee — Partneri registreerimine</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            accent: '#f97316',
+            bgdark: '#0f172a'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Small custom */
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-bgdark to-gray-900 text-gray-100 font-sans min-h-screen">
+
+  <!-- NAV / header -->
+  <header class="fixed top-0 left-0 w-full bg-bgdark/90 backdrop-blur border-b border-gray-800 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="text-accent text-3xl">💨</div>
+        <div>
+          <div class="text-sm text-gray-300">Suitsupaus.ee</div>
+          <div class="text-xs text-gray-500 -mt-1">Partneri registreerimine</div>
+        </div>
+      </a>
+
+      <nav class="hidden sm:flex gap-6 text-sm text-gray-300">
+        <a href="index.html" class="hover:text-primary">Avaleht</a>
+        <a href="partner.html" class="text-primary font-medium">Partner</a>
+        <a href="mailto:vashof1@gmail.com" class="hover:text-primary">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-5xl mx-auto px-6 py-28">
+    <section class="glass rounded-2xl p-8 shadow-lg border border-gray-800">
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- left: info -->
+        <div class="md:w-1/2">
+          <h1 class="text-3xl font-bold text-accent mb-2">Partneri registreerimine</h1>
+          <p class="text-gray-300 mb-4 leading-relaxed">
+            Tänan huvi eest! See vorm võimaldab organisatsioonil või üksikisikul registreeruda Suitsupaus.ee partnerina.
+            Pärast esitamist vaatame teabe läbi ja võtame teiega ühendust kinnituse või täpsustusteks.
+          </p>
+
+          <div class="text-sm text-gray-400 space-y-3">
+            <p><strong>Mis juhtub pärast saatmist?</strong> Teie andmed saadetakse turvaliselt admin meili ülevaatuseks. Mitte midagi ei avaldata enne meie kinnitust.</p>
+            <p><strong>Miks me küsime neid andmeid?</strong> Et kontrollida tausta, kontakteeruda ja vajadusel pakkuda koostöötingimusi.</p>
+            <p><strong>Privaatsus:</strong> Saadetud andmeid käsitletakse konfidentsiaalselt vastavalt privaatsuspoliitikale (link all). Soovi korral saate hiljem nõuda andmete eemaldamist.</p>
+          </div>
+
+          <div class="mt-6 text-xs text-gray-500">
+            <div class="mb-2">Admin kontakt (privaatne):</div>
+            <a class="text-primary hover:underline" href="mailto:vashof1@gmail.com">vashof1@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- right: form -->
+        <div class="md:w-1/2">
+          <form id="partnerForm" class="space-y-4 bg-transparent" autocomplete="off" novalidate>
+            <!-- Honeypot (spam) -->
+            <input type="text" name="hp_field" id="hp_field" class="hidden" tabindex="-1" autocomplete="off">
+
+            <label class="block">
+              <span class="text-sm text-gray-400">Organisatsiooni / partneri nimi <span class="text-accent">*</span></span>
+              <input required name="org_name" id="org_name" type="text" placeholder="Näide OÜ / Projekt X"
+                     class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm text-gray-400">Kontaktisiku nimi <span class="text-accent">*</span></span>
+              <input required name="contact_name" id="contact_name" type="text" placeholder="Täisnimi"
+                     class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none" />
+            </label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm text-gray-400">E-post <span class="text-accent">*</span></span>
+                <input required name="email" id="email" type="email" placeholder="kontakt@firma.ee"
+                       class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none" />
+              </label>
+
+              <label class="block">
+                <span class="text-sm text-gray-400">Telefon (valikuline)</span>
+                <input name="phone" id="phone" type="tel" placeholder="+372 5xxxxxxx"
+                       class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none" />
+              </label>
+            </div>
+
+            <label class="block">
+              <span class="text-sm text-gray-400">Veebileht / profiil (valikuline)</span>
+              <input name="website" id="website" type="url" placeholder="https://"
+                     class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm text-gray-400">Lühikirjeldus koostööideest / miks soovite partneriks saada <span class="text-accent">*</span></span>
+              <textarea required name="description" id="description" rows="4" placeholder="Kirjeldage oma pakkumist, sihtrühma, miks sobite partneriks..."
+                        class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none"></textarea>
+            </label>
+
+            <label class="block">
+              <span class="text-sm text-gray-400">Soovitud koostöövorm (valikuline)</span>
+              <select name="partnership_type" class="mt-2 w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-primary outline-none">
+                <option value="">Vali...</option>
+                <option>Soovitus/soodustus klientidele</option>
+                <option>Sisuteenus/koostöö</option>
+                <option>Sündmus/üritus</option>
+                <option>Muu</option>
+              </select>
+            </label>
+
+            <!-- GDPR + consent -->
+            <div class="text-sm text-gray-300 space-y-2">
+              <label class="flex items-start gap-3">
+                <input required type="checkbox" id="consent" name="consent" value="yes" class="mt-1"/>
+                <span>
+                  <strong>Kinnitan:</strong> Mul on õigus esitatud andmeid edastada ja ma nõustun, et Suitsupaus.ee kasutab neid partnerluse uurimiseks ja kontakteerimiseks. Olen lugenud <a href="#" class="text-primary underline">privaatsuspoliitikat</a>.
+                </span>
+              </label>
+
+              <label class="flex items-start gap-3">
+                <input type="checkbox" id="newsletter" name="newsletter" value="yes" class="mt-1"/>
+                <span>Soovin saada Suitsupaus.ee uuendusi ja partneriuudiseid (valikuline).</span>
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <div class="mt-4 flex items-center gap-3">
+              <button id="submitBtn" type="submit" class="px-5 py-2 bg-accent text-gray-900 font-semibold rounded-lg hover:bg-orange-500 transition">
+                Saada registreerimine
+              </button>
+              <div id="spinner" class="hidden w-8 h-8 border-4 border-gray-700 border-t-accent rounded-full animate-spin" aria-hidden="true"></div>
+            </div>
+
+            <!-- Feedback messages -->
+            <p id="formMessage" class="text-sm mt-3 hidden"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin note -->
+    <section class="mt-8 max-w-4xl text-sm text-gray-400">
+      <h4 class="text-gray-200 mb-2">Kinnitusprotsess (turvalisuse ja õiguslikkuse tagamiseks)</h4>
+      <ol class="list-decimal list-inside space-y-2">
+        <li>Saadetud andmed jõuavad ainult admin-meilile (privaatne vaatamiseks).</li>
+        <li>Admin kontaktib teid kinnituse ja edasiste sammude osas.</li>
+        <li>Aadressi lisamine partnerite nimekirja toimub ainult pärast manuaalset kontrolli ja kinnitamist.</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-400 border-t border-gray-800">
+    © 2025 Suitsupaus.ee — Kõik õigused kaitstud.
+  </footer>
+
+  <!-- JS: submit via fetch -> Formspree (saab otse Gmailile) -->
+  <script>
+    (function(){
+      const FORM_ENDPOINT = 'https://formspree.io/f/xzzjwnzl'; // ASENDA oma endpointiga
+      const form = document.getElementById('partnerForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('spinner');
+      const messageEl = document.getElementById('formMessage');
+
+      function showMessage(text, status='info') {
+        messageEl.classList.remove('hidden','text-green-400','text-red-400','text-gray-300');
+        messageEl.textContent = text;
+        if(status === 'success'){
+          messageEl.classList.add('text-green-400');
+        } else if(status === 'error'){
+          messageEl.classList.add('text-red-400');
+        } else {
+          messageEl.classList.add('text-gray-300');
+        }
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (document.getElementById('hp_field').value) { return; } // bot detected
+
+        const org = form.org_name.value.trim();
+        const contact = form.contact_name.value.trim();
+        const email = form.email.value.trim();
+        const desc = form.description.value.trim();
+        const consent = form.consent.checked;
+
+        if (!org || !contact || !email || !desc || !consent) {
+          showMessage('Palun täida kõik kohustuslikud väljad ja nõustu tingimustega.', 'error');
+          return;
+        }
+
+        const data = new FormData();
+        data.append('Organisatsioon', org);
+        data.append('Kontakt', contact);
+        data.append('Email', email);
+        data.append('Telefon', form.phone.value || '');
+        data.append('Veebileht', form.website.value || '');
+        data.append('Kirjeldus', desc);
+        data.append('Koostöövorm', form.partnership_type.value || '');
+        data.append('Nõusolek', consent ? 'jah' : 'ei');
+        data.append('Uudiskiri', form.newsletter.checked ? 'jah' : 'ei');
+
+        submitBtn.disabled = true;
+        spinner.classList.remove('hidden');
+        showMessage('Saadame... Palun oota.');
+
+        try {
+          const res = await fetch(FORM_ENDPOINT, {
+            method:'POST',
+            body:data,
+            headers:{'Accept':'application/json'}
+          });
+
+          if (res.ok) {
+            showMessage('Aitäh! Teie taotlus on saadetud. Me võtame teiega ühendust 1–3 tööpäeva jooksul.', 'success');
+            form.reset();
+          } else {
+            const json = await res.json().catch(()=>null);
+            showMessage(json && json.error ? json.error : 'Saatmine ebaõnnestus. Proovige hiljem.', 'error');
+          }
+        } catch (err) {
+          showMessage('Võrguprobleem. Kontrollige ühendust ja proovige uuesti.', 'error');
+        } finally {
+          spinner.classList.add('hidden');
+          submitBtn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+    </html>
+    
