@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abi ja nõu — Suitsupaus.ee</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Paytone+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #162447);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    background:#162447cc;
+    backdrop-filter: blur(6px);
+    padding:1rem 2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    z-index:50;
+    border-bottom:1px solid #222;
+  }
+
+  .site-logo {
+    font-family: 'Paytone One', sans-serif;
+    font-size:1.5rem;
+    background: linear-gradient(90deg, #e94560, #f07b3f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration:none;
+  }
+
+  nav {
+    display:flex;
+    gap:1.5rem;
+  }
+  nav a {
+    color:#e94560;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.2s;
+  }
+  nav a:hover { color:#f07b3f; }
+
+  .menu-toggle {
+    display:none;
+    font-size:1.5rem;
+    cursor:pointer;
+  }
+
+  @media(max-width:768px){
+    nav {
+      display:none;
+      flex-direction:column;
+      background:#162447cc;
+      position:absolute;
+      top:100%;
+      right:0;
+      width:200px;
+      padding:1rem;
+      border-radius:0 0 0.5rem 0.5rem;
+    }
+    nav.show { display:flex; }
+    .menu-toggle { display:block; color:#e94560; }
+  }
+
+  main {
+    max-width: 900px;
+    margin: 7rem auto 3rem;
+    padding: 0 1.5rem;
+    text-align: left;
+  }
+
+  h1 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #e94560, #f07b3f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-align:center;
+  }
+
+  h2 {
+    color: #f07b3f;
+    margin-top: 2rem;
+  }
+
+  p {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  a.resource {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0.5rem 0.5rem 0 0;
+    transition: 0.3s;
+  }
+  a.resource:hover {
+    background: #f07b3f;
+    transform: scale(1.05);
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: auto;
+    padding: 2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="site-logo">Suitsupaus.ee</a>
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <nav id="menuNav">
+    <a href="index.html">Avaleht</a>
+    <a href="partner.html">Partner</a>
+    <a href="abi.html" style="color:#f07b3f;">Abi ja nõu</a>
+    <a href="mailto:vashof1@gmail.com">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Abi ja nõu suitsetamisest loobumisel</h1>
+
+  <p>Suitsetamisest loobumine on üks parimaid otsuseid, mida saad enda tervise ja heaolu heaks teha.  
+  See ei ole lihtne, kuid õige toe ja nõuannete abil on see täiesti võimalik. Eestis on mitmeid tasuta teenuseid ja ressursse, mis aitavad sind igal sammul.</p>
+
+  <h2>💬 Loobumisnõustamine ja tugiteenused</h2>
+  <p><strong>Loobumistelefon 800 0100</strong> — tasuta nõustamisliin, kuhu saab helistada anonüümselt ja saada professionaalset tuge suitsetamisest loobumisel.</p>
+
+  <p><strong>Tervise Arengu Instituut</strong> pakub praktilisi juhiseid ja tugimaterjale: kuidas suitsetamisest loobuda, milliseid ravimeid kasutada ja kuidas säilitada motivatsiooni.</p>
+
+  <a class="resource" href="https://www.tai.ee" target="_blank">Tervise Arengu Instituut</a>
+  <a class="resource" href="https://www.tubakainfo.ee" target="_blank">Tubakainfo.ee</a>
+
+  <h2>🧠 Psühholoogiline tugi</h2>
+  <p>Suitsetamisest loobumisel mängib suurt rolli vaimne valmisolek. Võib esineda ärevust, unetust või isupuudust — see on normaalne osa taastumisest. Kui vajad tuge, pöördu spetsialisti poole.</p>
+
+  <a class="resource" href="https://peaasi.ee" target="_blank">Peaasi.ee</a>
+  <a class="resource" href="https://www.eluliin.ee" target="_blank">Eluliin.ee (24/7 tugi)</a>
+
+  <h2>💊 Nikotiini asendusravi</h2>
+  <p>Apteekides on saadaval mitmeid nikotiini asendusravi tooteid: plaastrid, närimiskummid ja spreid. Küsi nõu apteekrilt või perearstilt, milline lahendus sobib sulle kõige paremini.</p>
+
+  <h2>📅 Esimesed sammud loobumisel</h2>
+  <ul>
+    <li>Määra loobumiskuupäev ja teavita oma sõpru ja perekonda.</li>
+    <li>Eemalda kodust ja autost kõik sigaretid ja süütamisvahendid.</li>
+    <li>Asenda suitsetamine uute harjumustega — tee, jalutamine, vesi, närimiskumm.</li>
+    <li>Premeeri end iga suitsuvaba päeva eest.</li>
+  </ul>
+
+  <h2>🚀 Jaga oma teekonda</h2>
+  <p>Suitsetamisest loobumine on tugev samm. Kui oled valmis, jaga oma lugu <strong>Suitsupaus.ee</strong> Instagramis — motiveeri teisi ja näita, et muutus on võimalik.</p>
+</main>
+
+<footer>
+  © 2025 Suitsupaus.ee — Kõik õigused kaitstud.
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('menuNav');
+  toggle.addEventListener('click', () => nav.classList.toggle('show'));
+</script>
+
+</body>
+</html>
